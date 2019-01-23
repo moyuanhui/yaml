@@ -2,6 +2,8 @@ kind: StorageClass
 apiVersion: storage.k8s.io/v1beta1
 metadata:
   name: alicloud-disk-ssd-shenzhen-a
+  labels:
+    zone: ssd-shenzhen
 provisioner: alicloud/disk
 reclaimPolicy: Retain
 parameters:
