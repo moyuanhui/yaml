@@ -1,0 +1,81 @@
+apiVersion: apps/v1beta2
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+spec:
+  replicas: {{ .Values.replicaCount }}
+  selector:
+    matchLabels:
+      app: {{ .Release.Name }}
+      release: {{ .Release.Name }}
+  strategy:
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 1      
+  template:
+    metadata:
+      labels:
+        app: {{ .Release.Name }}
+        release: {{ .Release.Name }}
+    spec:
+      imagePullSecrets:
+      - name: {{ .Values.image.dockerRegistry }} 
+      containers:
+      - image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+        name: {{ .Release.Name }}
+        imagePullPolicy: "{{ .Values.image.pullPolicy }}"
+{{- if .Values.service.environment }}
+        env:
+        - name: ASPNETCORE_ENVIRONMENT 
+          value: {{ .Values.service.environment }}
+{{- end }}   
+{{- if .Values.service.HealthProbes }}
+        livenessProbe:
+          httpGet:
+            path: "{{ .Values.service.HealthPath }}"
+            port: "{{ .Values.service.internalPort }}-http"
+          initialDelaySeconds: {{ .Values.service.HealthProbesLivenessTimeout }}
+          timeoutSeconds: 15  
+          periodSeconds: 10
+          failureThreshold: {{ .Values.service.HealthProbeLivenessFailureThreshold }}
+        readinessProbe:
+          httpGet:
+            path: "{{ .Values.service.HealthPath }}"
+            port: "{{ .Values.service.internalPort }}-http"
+          timeoutSeconds: 15
+          periodSeconds: 10
+          initialDelaySeconds: {{ .Values.service.HealthProbesReadinessTimeout }}
+{{- end }}   
+        volumeMounts:
+        - mountPath: /etc/localtime
+          name: host-time        
+        - mountPath: /app/App_Data/Logs
+          name: app-logs
+        - mountPath: /app/wwwroot/excel
+          name: app-excel
+        {{- if .Values.resources }}
+        resources:
+{{ toYaml .Values.resources | indent 10 }}
+        {{- end }}
+        ports:
+        - containerPort: {{ .Values.service.internalPort }}
+          name: "{{ .Values.service.internalPort }}-http"
+        - containerPort: {{ .Values.service.rpcInterPort }}
+          name: "{{ .Values.service.rpcInterPort }}-rpc"
+      volumes:
+      - name: host-time
+        hostPath:
+          path: /etc/localtime
+      - name: app-logs
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-pvc-log
+      - name: app-excel
+        persistentVolumeClaim:
+          claimName: {{ .Release.Name }}-pvc-excel
+    {{- if .Values.nodeSelector }}
+      nodeSelector:
+{{ toYaml .Values.nodeSelector | indent 8 }}
+    {{- end }}
