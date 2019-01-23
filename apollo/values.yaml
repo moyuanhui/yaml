@@ -1544,7 +1544,7 @@ uatconfigservicemysql:
   mysqlPassword: "admin"
   # mysqlUser: "root"
   # mysqlPassword: "123456"
-  mysqlRootPassword: "hkabc_123"
+  mysqlRootPassword: "123456"
   mysqlDatabase: "ApolloConfigDB"
   ## Persist data to a persistent volume
   persistence:
@@ -1945,7 +1945,7 @@ proconfigservicemysql:
   mysqlPassword: "admin"
   # mysqlUser: "root"
   # mysqlPassword: "123456"
-  mysqlRootPassword: "hkabc_123"
+  mysqlRootPassword: "123456"
   mysqlDatabase: "ApolloConfigDB"
   ## Persist data to a persistent volume
   persistence:
@@ -2346,7 +2346,7 @@ portalmysql:
   mysqlPassword: "admin"
   # mysqlUser: "root"
   # mysqlPassword: "123456"
-  mysqlRootPassword: "hkabc_123"
+  mysqlRootPassword: "123456"
   mysqlDatabase: "ApolloPortalDB"
   ## Persist data to a persistent volume
   persistence:
