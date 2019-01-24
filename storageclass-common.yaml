@@ -1,0 +1,14 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: hengkangit-common-storageclass
+  labels:
+    zone: common-shenzhen
+provisioner: alicloud/disk
+reclaimPolicy: Retain
+parameters:
+  type: cloud
+  regionid: cn-shenzhen
+  zoneid: cn-shenzhen-a
+  fstype: "ext4"
+  readonly: "false"

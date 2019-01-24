@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-helm install --name apollo --namespace apollo ./ \
+helm upgrade -i apollo --namespace apollo ./ \
              --set uatconfigservice.extraEnv."eureka\.instance\.hostname"="apollo-uatconfigservice" \
              --set uatconfigservice.extraEnv."eureka\.instance\.preferIpAddress"=\"false\" \
              --set uatadminservice.extraEnv."eureka\.instance\.hostname"="apollo-uatadminservice" \
