@@ -62,7 +62,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "hk-nfs-storage-lastest"
+  storageClass: "hengkangit-common-storageclass"
   accessMode: ReadWriteOnce
   size: 10Gi
 
@@ -105,9 +105,9 @@ metrics:
 service:
   ## Specify a service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
-  type: NodePort
+  type: ClusterIP
   port: 3306
-  nodePort: 32000
+  # nodePort: 32000
   #nodePort: 32005
 ssl:
   enabled: false
