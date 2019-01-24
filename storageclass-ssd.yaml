@@ -1,0 +1,14 @@
+kind: StorageClass
+apiVersion: storage.k8s.io/v1beta1
+metadata:
+  name: hengkangit-ssd-storageclass
+  labels:
+    zone: ssd-shenzhen
+provisioner: alicloud/disk
+reclaimPolicy: Retain
+parameters:
+  type: cloud_ssd
+  regionid: cn-shenzhen
+  zoneid: cn-shenzhen-a
+  fstype: "ext4"
+  readonly: "false"

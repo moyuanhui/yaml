@@ -119,7 +119,7 @@ resources:
     cpu: 100m
 
 ## Replica count, set to 3 to provide a default available cluster
-replicas: 1
+replicas: 2
 
 ## Node labels and tolerations for pod assignment
 ## ref: https://kubernetes.io/docs/concepts/configuration/assign-pod-node/#nodeselector
