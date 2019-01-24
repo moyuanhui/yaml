@@ -1,0 +1,14 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: {{ .Release.Name }}
+  labels:
+    app: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+spec:
+  selector:
+    app: {{ .Release.Name }}
+    release: {{ .Release.Name }}
+  ports:
+    - name: http
+      port: {{ .Values.service.externalPort }}
