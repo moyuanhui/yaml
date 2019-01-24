@@ -253,26 +253,26 @@ slave:
   ## Configure extra options for Redis Slave liveness and readiness probes
   ## ref: https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/#configure-probes)
   ##
-  # livenessProbe:
-  #   enabled: true
-  #   initialDelaySeconds: 30
-  #   periodSeconds: 10
-  #   timeoutSeconds: 5
-  #   successThreshold: 1
-  #   failureThreshold: 5
-  # readinessProbe:
-  #   enabled: true
-  #   initialDelaySeconds: 5
-  #   periodSeconds: 10
-  #   timeoutSeconds: 10
-  #   successThreshold: 1
-  #   failureThreshold: 5
+  livenessProbe:
+    enabled: true
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 5
+    successThreshold: 1
+    failureThreshold: 5
+  readinessProbe:
+    enabled: true
+    initialDelaySeconds: 5
+    periodSeconds: 10
+    timeoutSeconds: 10
+    successThreshold: 1
+    failureThreshold: 5
 
   ## Redis slave Resource
-  # resources:
-  #   requests:
-  #     memory: 256Mi
-  #     cpu: 100m
+  resources:
+    requests:
+      memory: 256Mi
+      cpu: 100m
 
   ## Redis slave selectors and tolerations for pod assignment
   # nodeSelector: {"beta.kubernetes.io/arch": "amd64"}
@@ -288,10 +288,10 @@ slave:
   # podAnnotations: {}
 
   ## Redis slave pod Security Context
-  # securityContext:
-  #   enabled: true
-  #   fsGroup: 1001
-  #   runAsUser: 1001
+  securityContext:
+    enabled: true
+    fsGroup: 1001
+    runAsUser: 1001
 
 ## Prometheus Exporter / Metrics
 ##
