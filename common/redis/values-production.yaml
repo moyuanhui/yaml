@@ -28,8 +28,8 @@ image:
 
 ## Cluster settings
 cluster:
-  enabled: true
-  slaveCount: 1
+  enabled: false
+  slaveCount: 0
 
 networkPolicy:
   ## Specifies whether a NetworkPolicy should be created
