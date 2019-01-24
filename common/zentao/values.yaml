@@ -1,0 +1,46 @@
+replicaCount: 1
+image:
+  repository: hub.hengkangit.com:6337/hk_docker/zendao
+  tag: v1.11.0
+  pullPolicy: IfNotPresent
+  dockerRegistry: registry-docker-secret-hengkangit
+service:
+  name: zendao
+  type: ClusterIP
+  dbPasswd: root
+  externalPort: 80
+  internalPort: 80
+  restartPolicy: Always
+  HealthProbes: false
+  HealthPath: "/health/check"
+  HealthProbesLivenessTimeout: 30          
+  HealthProbesReadinessTimeout: 20      
+  HealthProbeLivenessFailureThreshold: 10
+## Persist data to a persistent volume
+persistence:
+  enabled: true
+  storageClass: "hk-nfs-storage-prod"
+  accessMode: ReadWriteOnce
+  size: 1Gi
+  zentaoSize: 5Gi
+
+ingress:
+  enabled: true
+  # Used to create an Ingress record.
+  hosts: [
+    "pm.hengkangit.com"
+  ]
+  annotations:
+  tls:
+resources:
+  requests:
+    memory: 100Mi
+    cpu: 100m
+  limits:
+    memory: 300Mi
+    cpu: 200m
+
+nodeSelector: 
+  deploy-zentao: utils
+
+  
