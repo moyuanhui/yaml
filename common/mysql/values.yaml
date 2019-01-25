@@ -104,6 +104,7 @@ metrics:
 ## Configure the service
 ## ref: http://kubernetes.io/docs/user-guide/services/
 service:
+  enabled: true
   ## Specify a service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
   # type: ClusterIP
