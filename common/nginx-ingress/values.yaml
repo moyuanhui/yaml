@@ -81,11 +81,11 @@ controller:
 
   resources: 
    limits:
-     cpu: 100m
-     memory: 64Mi
-   requests:
      cpu: 200m
      memory: 256Mi
+   requests:
+     cpu: 100m
+     memory: 64Mi
 
   service:
     annotations: {}
@@ -178,13 +178,13 @@ defaultBackend:
 
   replicaCount: 1
 
-  resources: {}
-  # limits:
-  #   cpu: 10m
-  #   memory: 20Mi
-  # requests:
-  #   cpu: 10m
-  #   memory: 20Mi
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    requests:
+      cpu: 10m
+      memory: 20Mi
 
   service:
     annotations: {}
@@ -220,13 +220,13 @@ statsExporter:
   metricsNamespace: nginx
   statusPage: http://localhost:18080/nginx_status/format/json
 
-  resources: {}
-  # limits:
-  #   cpu: 10m
-  #   memory: 20Mi
-  # requests:
-  #   cpu: 10m
-  #   memory: 20Mi
+  resources: 
+    limits:
+      cpu: 100m
+      memory: 100Mi
+    requests:
+      cpu: 10m
+      memory: 20Mi
 
   service:
     annotations: {}
