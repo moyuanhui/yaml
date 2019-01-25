@@ -76,7 +76,7 @@ controller:
   ##
   podAnnotations: {}
 
-  replicaCount: 1
+  replicaCount: 2
 
   resources: {}
   #  limits:
