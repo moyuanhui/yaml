@@ -70,7 +70,8 @@ controller:
   ## Node labels for controller pod assignment
   ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: {}
+  nodeSelector: 
+    node-role.kubernetes.io/ingress: ingress
 
   ## Annotations to be added to controller pods
   ##
@@ -78,13 +79,13 @@ controller:
 
   replicaCount: 2
 
-  resources: {}
-  #  limits:
-  #    cpu: 100m
-  #    memory: 64Mi
-  #  requests:
-  #    cpu: 100m
-  #    memory: 64Mi
+  resources: 
+   limits:
+     cpu: 100m
+     memory: 64Mi
+   requests:
+     cpu: 200m
+     memory: 256Mi
 
   service:
     annotations: {}
@@ -168,7 +169,8 @@ defaultBackend:
   ## Node labels for default backend pod assignment
   ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector: {}
+  nodeSelector: 
+    node-role.kubernetes.io/ingress: ingress
 
   ## Annotations to be added to default backend pods
   ##
