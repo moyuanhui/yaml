@@ -174,8 +174,11 @@ master:
     ## set the LoadBalancer service type to internal only.
     ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#internal-load-balancer
     ##
-    annotations: {}
-    loadBalancerIP:
+    annotations: 
+      service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
+      service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9oan2bx9nhv8vvw9hxz"
+      service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: "true"
+    loadBalancerIP: 
 
   ## Redis Master Pod Security Context
   securityContext:

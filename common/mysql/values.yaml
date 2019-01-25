@@ -96,9 +96,10 @@ metrics:
   imageTag: v0.10.0
   imagePullPolicy: IfNotPresent
   resources: {}
-  annotations: {}
-    # prometheus.io/scrape: "true"
-    # prometheus.io/port: "9104"
+  annotations: 
+    service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
+    service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9oan2bx9nhv8vvw9hxz"
+    service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: "true"
 
 ## Configure the service
 ## ref: http://kubernetes.io/docs/user-guide/services/
