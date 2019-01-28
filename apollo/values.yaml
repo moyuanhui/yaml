@@ -540,7 +540,7 @@ uatconfigservice:
   configurationFiles: {}
 
   service:
-    type: ClusterIP
+    type: LoadBalancer
 
     ## When using web.service.type: LoadBalancer, sets the user-specified load balancer IP
     # loadBalancerIP: 172.217.1.174
@@ -556,9 +556,9 @@ uatconfigservice:
     #   - 192.168.1.10/32
 
     # nodePort: 30000
-    # annotations:
-    #   prometheus.io/probe: "true"
-    #   prometheus.io/probe_path: "/"
+    annotations:
+      service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
+      service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9j237kuhhd0que0zz3r"
     servicePort: 8080
 
 proconfigservice:
@@ -616,7 +616,7 @@ proconfigservice:
   configurationFiles: {}
 
   service:
-    type: ClusterIP
+    type: LoadBalancer
 
     ## When using web.service.type: LoadBalancer, sets the user-specified load balancer IP
     # loadBalancerIP: 172.217.1.174
@@ -632,10 +632,10 @@ proconfigservice:
     #   - 192.168.1.10/32
 
     # nodePort: 30000
-    # annotations:
-    #   prometheus.io/probe: "true"
-    #   prometheus.io/probe_path: "/"
-    servicePort: 8080
+    annotations:
+      service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
+      service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9j237kuhhd0que0zz3r"
+    servicePort: 8081
 
 portal:
   ## If false, portal will not be installed
