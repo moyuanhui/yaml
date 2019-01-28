@@ -176,8 +176,8 @@ master:
     ##
     annotations: 
       service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
-      service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9oan2bx9nhv8vvw9hxz"
-    loadBalancerIP: 172.16.8.32
+      service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9j237kuhhd0que0zz3r"
+    loadBalancerIP: 
 
   ## Redis Master Pod Security Context
   securityContext:

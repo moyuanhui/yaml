@@ -6,9 +6,7 @@ metadata:
   labels:
     app: ingress-nginx
 spec:
-  type: LoadBalancer
-  externalIPs:
-  - 47.107.116.238
+  type: ClusterIP
   ports:
   - port: 80
     targetPort: 80

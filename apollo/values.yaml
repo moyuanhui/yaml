@@ -723,7 +723,7 @@ portal:
     ## Must be provided if Ingress is enabled
     ##
     hosts: 
-      - apollo.hengkangit.com
+      - prod-apollo.hengkangit.com
     #   - domain.com/apollo-portal
 
     ## Portal Ingress TLS configuration
