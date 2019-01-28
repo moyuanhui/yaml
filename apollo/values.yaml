@@ -1557,7 +1557,7 @@ uatconfigservicemysql:
     ##
     storageClass: "hengkangit-common-storageclass"
     accessMode: ReadWriteOnce
-    size: 5Gi
+    size: 6Gi
     annotations: {}
   initializationFiles:
     initializationFiles-configservice.sql: |-
@@ -1958,7 +1958,7 @@ proconfigservicemysql:
     ##
     storageClass: "hengkangit-common-storageclass"
     accessMode: ReadWriteOnce
-    size: 5Gi
+    size: 6Gi
     annotations: {}
   initializationFiles:
     initializationFiles-configservice.sql: |-
@@ -2359,7 +2359,7 @@ portalmysql:
     ##
     storageClass: "hengkangit-common-storageclass"
     accessMode: ReadWriteOnce
-    size: 5Gi
+    size: 6Gi
     annotations: {}
   initializationFiles:
     initializationFiles-portaldb.sql: |-
