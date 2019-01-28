@@ -97,14 +97,13 @@ metrics:
   imagePullPolicy: IfNotPresent
   resources: {}
   annotations: 
-    service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
-    service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9oan2bx9nhv8vvw9hxz"
-    service.beta.kubernetes.io/alicloud-loadbalancer-force-override-listeners: "true"
+      service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
+      service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9j237kuhhd0que0zz3r"
 
 ## Configure the service
 ## ref: http://kubernetes.io/docs/user-guide/services/
 service:
-  enabled: true
+  enabled: false
   ## Specify a service type
   ## ref: https://kubernetes.io/docs/concepts/services-networking/service/#publishing-services---service-types
   # type: ClusterIP
