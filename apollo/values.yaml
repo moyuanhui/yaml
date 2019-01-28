@@ -1555,7 +1555,7 @@ uatconfigservicemysql:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: "alicloud-disk-common"
+    storageClass: "hengkangit-common-storageclass"
     accessMode: ReadWriteOnce
     size: 5Gi
     annotations: {}
@@ -1956,7 +1956,7 @@ proconfigservicemysql:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: "alicloud-disk-common"
+    storageClass: "hengkangit-common-storageclass"
     accessMode: ReadWriteOnce
     size: 5Gi
     annotations: {}
@@ -2357,7 +2357,7 @@ portalmysql:
     ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
     ##   GKE, AWS & OpenStack)
     ##
-    storageClass: "alicloud-disk-common"
+    storageClass: "hengkangit-common-storageclass"
     accessMode: ReadWriteOnce
     size: 5Gi
     annotations: {}
@@ -2669,7 +2669,7 @@ portalmysql:
 
       # Config
       # ------------------------------------------------------------
-      
+
       INSERT INTO `ServerConfig` (`Key`, `Value`, `Comment`)
       VALUES
           ('apollo.portal.envs', 'uat, pro', '可支持的环境列表'),
