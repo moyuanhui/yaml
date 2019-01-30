@@ -5,15 +5,14 @@ metadata:
   labels:
 {{ include "labels.standard" . | indent 4 }}
   annotations:
-  {{- if .Values.serviceAnnotations }}
-{{ toYaml .Values.serviceAnnotations | indent 4 }}
+  {{- if .Values.service.serviceAnnotations }}
+{{ toYaml .Values.service.serviceAnnotations | indent 4 }}
   {{- end }}
 spec:
-  type: ClusterIP
-  clusterIP: None
+  type: {{ .Values.service.type }}
   ports:
   - name: server
-    port: {{ .Values.redis.port }}
+    port: {{ .Values.service.port }}
     protocol: TCP
     targetPort: redis
   - name: sentinel
