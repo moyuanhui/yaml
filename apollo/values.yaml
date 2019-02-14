@@ -635,7 +635,7 @@ proconfigservice:
     annotations:
       service.beta.kubernetes.io/alicloud-loadbalancer-address-type: "intranet"
       service.beta.kubernetes.io/alicloud-loadbalancer-id: "lb-wz9j237kuhhd0que0zz3r"
-    servicePort: 8080
+    servicePort: 8081
 
 portal:
   ## If false, portal will not be installed
