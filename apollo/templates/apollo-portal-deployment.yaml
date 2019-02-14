@@ -38,7 +38,7 @@ spec:
             {{- end }}
             {{ if .Values.proconfigservice.enabled -}}
             - name: PRO_META
-              value: "http://apollo-proconfigservice:8080"
+              value: "http://apollo-proconfigservice:8081"
             {{- end }}
             {{- if .Values.portalmysql.enabled }}
             - name: spring.datasource.url
